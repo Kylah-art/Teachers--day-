@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Teacher 💙</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #ffffff 0%, #eef3f8 48%, #cbd8e6 100%);
+  font-family: "Cormorant Garamond", serif;
+  color: #172b43;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* FLOATING STARS */
+.star {
+  position: fixed;
+  color: #173b63;
+  opacity: .35;
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.s1 { top: 12%; left: 12%; font-size: 22px; }
+.s2 { top: 20%; right: 13%; font-size: 15px; animation-delay: 1s; }
+.s3 { bottom: 17%; left: 16%; font-size: 14px; animation-delay: 2s; }
+.s4 { bottom: 20%; right: 12%; font-size: 23px; animation-delay: 1.5s; }
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px) rotate(8deg);
+  }
+}
+
+/* MAIN */
+.container {
+  width: 100%;
+  max-width: 520px;
+  padding: 25px;
+  text-align: center;
+}
+
+.title {
+  font-size: 34px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #173b63;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* CARD */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 520px;
+  margin: auto;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s cubic-bezier(.68,-.2,.27,1.2);
+  transform-style: preserve-3d;
+}
+
+.card.open .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT */
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  background: rgba(255,255,255,.94);
+  border: 2px solid #173b63;
+  box-shadow: 0 20px 45px rgba(20,45,70,.2);
+  overflow: hidden;
+}
+
+.card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+}
+
+.card-front::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #9caec1;
+  border-radius: 12px;
+}
+
+.small {
+  font-size: 15px;
+  letter-spacing: 3px;
+  color: #6d7d8e;
+  margin-bottom: 25px;
+}
+
+.front-title {
+  font-size: 43px;
+  line-height: 1.05;
+  color: #173b63;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.front-script {
+  font-family: "Great Vibes", cursive;
+  font-size: 46px;
+  color: #173b63;
+  margin-top: 15px;
+  z-index: 1;
+}
+
+.heart {
+  font-size: 32px;
+  margin-top: 22px;
+  animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.click {
+  position: absolute;
+  bottom: 25px;
+  color: #61758a;
+  font-size: 16px;
+  z-index: 2;
+}
+
+/* BACK / LETTER */
+.card-back {
+  transform: rotateY(180deg);
+  padding: 27px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.letter {
+  position: relative;
+  z-index: 2;
+}
+
+.letter-title {
+  text-align: center;
+  font-size: 29px;
+  color: #173b63;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.ornament {
+  text-align: center;
+  color: #173b63;
+  letter-spacing: 6px;
+  margin-bottom: 18px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+
+.highlight {
+  color: #173b63;
+  font-weight: 700;
+}
+
+.signature {
+  text-align: right;
+  font-family: "Great Vibes", cursive;
+  font-size: 31px;
+  color: #173b63;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* BUTTON */
+.open-btn {
+  margin-top: 22px;
+  border: none;
+  background: #173b63;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(23,59,99,.25);
+}
+
+.open-btn:active {
+  transform: scale(.96);
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+
+  .container {
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    height: 470px;
+  }
+
+  .front-title {
+    font-size: 37px;
+  }
+
+  .front-script {
+    font-size: 41px;
+  }
+
+  .card-back {
+    padding: 25px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="star s1">✦</div>
+<div class="star s2">✧</div>
+<div class="star s3">✦</div>
+<div class="star s4">✧</div>
+
+<div class="container">
+
+  <div class="title">
+    A Letter of Gratitude
+  </div>
+
+  <div class="subtitle">
+    A little surprise for my teacher 💙
+  </div>
+
+  <div class="card" id="card">
+
+    <div class="card-inner">
+
+      <!-- FRONT -->
+      <div class="card-front">
+
+        <div class="small">
+          WITH GRATITUDE
+        </div>
+
+        <div class="front-title">
+          Happy<br>
+          Teacher's Day
+        </div>
+
+        <div class="front-script">
+          Thank You
+        </div>
+
+        <div class="heart">
+        </div>
+
+        <div class="click">
+          Tap the card to open ✨
+        </div>
+
+      </div>
+
+      <!-- LETTER -->
+      <div class="card-back">
+
+        <div class="letter">
+
+          <div class="letter-title">
+            Happy Teacher's Day 💙
+          </div>
+
+          <div class="ornament">
+            ── ✦ ──
+          </div>
+
+          <p>
+            Dear: Sir paul
+          </p>
+
+          <p>
+            <span class="highlight">
+              Happy Teacher's Day! 
+            </span>
+          </p>
+
+          <p>
+            Thank you po sa lahat ng inyong pagtuturo,
+            patience, effort, at pag-guide sa amin.
+          </p>
+
+          <p>
+            Thank you po sa pagtuturo kahit minsan
+            <span class="highlight">
+              sakit na sa ulo namin ang code.
+            </span>
+            😭
+          </p>
+
+          <p>
+            Sa bawat error, bawat mali, at bawat code
+            na ayaw gumana, salamat po dahil hindi
+            kayo nagsasawang turuan kami.
+          </p>
+
+          <p>
+            At syempre... hindi namin makakalimutan
+            yung <span class="highlight">
+            prank ninyo sa grades!</span> 😭
+          </p>
+
+          <p>
+            Akala ko talaga totoo na! Pati yung card,
+            nadala rin ako. HAHAHAHA! 😭
+          </p>
+
+          <p>
+            Pero kahit na-prank kami, naging magandang
+            memory pa rin po iyon na siguradong
+            hindi namin makakalimutan.
+          </p>
+
+          <p>
+            Thank you po dahil hindi lang lessons ang
+            binibigay ninyo sa amin, kundi pati memories
+            na madadala namin.
+          </p>
+
+          <p>
+            Sana po alam ninyo kung gaano namin
+            naa-appreciate ang lahat ng ginagawa ninyo
+            para sa amin.
+          </p>
+
+          <p>
+            <span class="highlight">
+              Maraming salamat po,Sir! 
+            </span>
+          </p>
+
+          <div class="signature">
+            - Kylah •_•
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Talaboc,Kylah P.(TKP) -->
+
+<script>
+
+function toggleCard(event) {
+
+  if (event) {
+    event.stopPropagation();
+  }
+
+  const card = document.getElementById("card");
+
+  card.classList.toggle("open");
+}
+
+document.getElementById("card").addEventListener("click", function() {
+  this.classList.toggle("open");
+});
+
+</script>
+
+</body>
+</html>
